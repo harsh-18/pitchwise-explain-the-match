@@ -16,9 +16,13 @@
 
 🎥 **Demo video (3 min):** [https://www.loom.com/share/da9a79c7eb4d4bd09986522b381cf253](https://www.loom.com/share/da9a79c7eb4d4bd09986522b381cf253)
 
-### App Screenshot
+### App Screenshots
 
-![PitchWise app screenshot](assets/app-screenshot.png)
+![PitchWise — Contextual Match Outlook (England vs Germany)](assets/screenshot-1-outlook.png)
+
+![PitchWise — Match Story and Factor Breakdown](assets/screenshot-2-story.png)
+
+![PitchWise — Tactical Context and Decision Interpretation](assets/screenshot-3-events.png)
 
 ---
 
