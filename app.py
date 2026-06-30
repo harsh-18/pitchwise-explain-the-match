@@ -267,17 +267,22 @@ leader = team_a if p_a > p_b else team_b
 
 st.markdown("# ⚽ PitchWise AI")
 st.markdown(
-    "**Your live World Cup match explainer.** "
-    "PitchWise reads the tactical context and momentum of a fixture — "
-    "then explains what is happening and *why it matters*, in plain language."
+    "**An explainable World Cup match companion.** "
+    "PitchWise does not predict winners — it reads the tactical context, momentum signals, "
+    "and decision points of a fixture, then explains *what is happening and why* in plain language, "
+    "adapted to how you watch the game."
 )
 st.divider()
 
 
 # ── Match outlook ──────────────────────────────────────────────────────────────
 
-st.markdown(f"### 📊 Match Outlook — {team_a} vs {team_b}")
-st.caption("Based on attacking quality, defensive shape, midfield control, recent form, and pressure handling under tournament conditions.")
+st.markdown(f"### 📊 Contextual Match Outlook — {team_a} vs {team_b}")
+st.caption(
+    "These figures reflect each team's weighted contextual profile — attack, defense, midfield, "
+    "recent form, and pressure handling — adjusted for venue and tournament stage. "
+    "They express *narrative weight*, not a scoreline forecast."
+)
 
 left, middle, right = st.columns(3)
 left.metric(f"🟦 {team_a} win", f"{p_a}%")
@@ -288,13 +293,32 @@ st.progress(p_a / 100, text=f"{team_a} match outlook")
 st.progress(p_draw / 100, text="Draw / unresolved tension")
 st.progress(p_b / 100, text=f"{team_b} match outlook")
 
+with st.expander("ℹ️ How PitchWise calculates this", expanded=False):
+    st.markdown(
+        "**Scoring model — five weighted dimensions:**\n\n"
+        "| Dimension | Weight | What it captures |\n"
+        "|---|---|---|\n"
+        "| Attack | 28% | Forward threat and goal-creation capacity |\n"
+        "| Defense | 22% | Defensive shape, recovery, and aerial duels |\n"
+        "| Midfield control | 22% | Pressing traps, passing rhythm, and phase transitions |\n"
+        "| Recent form | 18% | Tournament momentum and confidence under pressure |\n"
+        "| Pressure handling | 10% | Emotional and tactical composure in high-stakes moments |\n\n"
+        "**Context adjustments:**  \n"
+        "- Venue atmosphere adds a ±2.5 point boost to the home-crowd team's base score  \n"
+        "- Tournament pressure (slider) amplifies or dampens the pressure-handling dimension  \n\n"
+        "**What the percentages mean:**  \n"
+        "The win/draw/loss figures are a *contextual narrative split*, not a probability model. "
+        "They show which team's profile gives it more structural weight in this fixture, "
+        "given the selected conditions. PitchWise does not claim to predict results."
+    )
+
 st.divider()
 
 
 # ── Match Story ────────────────────────────────────────────────────────────────
 
 st.markdown("### 📖 Match Story")
-st.caption("What kind of game is this likely to be, and what shapes it?")
+st.caption("A narrative reading of this fixture — based on tactical profiles, contextual weight, and venue conditions.")
 st.markdown(match_story(team_a, team_b, profile_a, profile_b, p_a, p_draw, p_b, venue))
 
 st.divider()
@@ -302,8 +326,11 @@ st.divider()
 
 # ── Why the AI leans this way ──────────────────────────────────────────────────
 
-st.markdown("### 🔍 Why PitchWise Leans This Way")
-st.caption("Every signal that moved the needle — shown transparently so you can agree or challenge it.")
+st.markdown("### 🔍 Factor Breakdown — Why PitchWise Reads It This Way")
+st.caption(
+    "Each dimension is shown individually so you can see exactly which factors drive the contextual reading. "
+    "Agree, challenge, or use these as starting points for your own analysis."
+)
 
 reasons = [
     explain_feature("Attack", profile_a["attack"], profile_b["attack"], team_a, team_b),
@@ -320,8 +347,11 @@ st.divider()
 
 # ── Fan explanation ────────────────────────────────────────────────────────────
 
-st.markdown(f"### 🗣️ Explained for You — *{fan_level}* view")
-st.caption("PitchWise adapts its language to how you experience the game.")
+st.markdown(f"### 🗣️ Tactical Context — *{fan_level}* view")
+st.caption(
+    "The same tactical situation, explained at the level of detail that matches how you watch football. "
+    "PitchWise changes the language, not the analysis."
+)
 st.markdown(fan_explanation(fan_level, team_a, team_b, profile_a, profile_b, event))
 
 st.divider()
@@ -329,8 +359,11 @@ st.divider()
 
 # ── Event breakdown ────────────────────────────────────────────────────────────
 
-st.markdown(f"### ⚡ Event Breakdown — *{event}*")
-st.caption("What this moment means for momentum and why honest explanation of it builds fan trust.")
+st.markdown(f"### ⚡ Decision Interpretation — *{event}*")
+st.caption(
+    "PitchWise separates two things fans often conflate: what a moment *does to momentum* "
+    "and what makes an *honest, trustworthy explanation* of it. Both matter."
+)
 
 event_info = EVENT_EXPLANATIONS[event]
 event_col, trust_col = st.columns(2)
@@ -349,32 +382,32 @@ st.divider()
 # ── Why This Matters ───────────────────────────────────────────────────────────
 
 st.markdown("### 💡 Why This Matters")
-st.caption("The problem PitchWise is built to solve.")
+st.caption("Explanation, not prediction, is the hard problem. This is what PitchWise is built to solve.")
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown("**For fans**")
+    st.markdown("**Fan understanding**")
     st.write(
-        "Billions watch football but very few understand why tactical decisions are made. "
-        "PitchWise turns expert-level context into plain, accessible language — so every fan "
-        "feels closer to the game, regardless of background."
+        "Billions watch football but very few understand why decisions are made — why a team "
+        "drops deep, why a substitution changes a game, or why a VAR call feels so disruptive. "
+        "PitchWise explains the *reasoning*, not just the result."
     )
 
 with col2:
-    st.markdown("**For trust**")
+    st.markdown("**Transparent AI**")
     st.write(
-        "AI predictions without explanations breed suspicion. PitchWise shows every signal "
-        "that shaped its view and invites disagreement. Transparency is not a feature — "
-        "it is the foundation."
+        "Every contextual reading PitchWise produces is traceable to named factors with visible weights. "
+        "There is no black box. Fans can see the inputs, challenge the reading, "
+        "and form their own views — that is what trustworthy AI looks like."
     )
 
 with col3:
-    st.markdown("**For accessibility**")
+    st.markdown("**Accessible analysis**")
     st.write(
-        "Football is the world's game. PitchWise adapts its explanations to different knowledge "
-        "levels, making the rich tactical and emotional layers of the sport available to everyone — "
-        "from a first-time viewer to a seasoned analyst."
+        "Tactical and pressure analysis has historically been locked behind expert commentary. "
+        "PitchWise opens it up — adapting the same analysis to beginner, casual, or analyst level "
+        "so the depth of the game is available to everyone."
     )
 
 st.divider()
@@ -384,9 +417,10 @@ st.divider()
 
 st.markdown("### 🏆 The Bottom Line")
 st.success(
-    f"PitchWise AI does not replace coaches, referees, or analysts. "
-    f"It helps fans ask better questions: why **{leader}** may hold the current edge, "
-    "what could shift momentum, and which parts of the match are tactical, emotional, or rule-driven. "
+    f"PitchWise AI is not a prediction engine — it is an explanation engine. "
+    f"It helps fans understand why **{leader}** holds the current contextual edge, "
+    "what tactical or emotional event could shift that, and how to interpret each moment "
+    "of the match clearly and honestly. "
     "Great football deserves great explanation."
 )
 

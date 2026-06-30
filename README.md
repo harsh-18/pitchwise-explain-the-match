@@ -1,6 +1,15 @@
 # PitchWise AI
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Built with Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-ff4b4b.svg)](https://streamlit.io)
+
 PitchWise AI is an explainable World Cup match companion that helps fans understand the story behind a match, not just the score or prediction.
+
+## Live Demo
+
+> **Deployed URL:** _coming soon — will be updated once hosted on Streamlit Community Cloud_
+>
+> To run locally: `pip install -r requirements.txt && streamlit run app.py`
 
 ## Problem
 
@@ -51,6 +60,16 @@ PitchWise AI is not:
 
 It is a human-centered explanation tool.
 
+## Project Files
+
+| File | Purpose |
+|---|---|
+| [`app.py`](app.py) | Full Streamlit application — all logic, scoring model, and UI |
+| [`requirements.txt`](requirements.txt) | Python dependencies |
+| [`PROJECT_SUMMARY.md`](PROJECT_SUMMARY.md) | One-page brief for hackathon judges |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution guidelines |
+| [`LICENSE`](LICENSE) | MIT License |
+
 ## How To Run
 
 Install dependencies:
@@ -79,3 +98,7 @@ streamlit run app.py
 - Add LangFlow or LangChain orchestration for event-specific explanation chains.
 - Add multilingual explanations for global World Cup audiences.
 - Add real match event feeds and post-match report generation.
+
+## License
+
+[MIT](LICENSE) © 2025 harsh-18
