@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Built with Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-ff4b4b.svg)](https://streamlit.io)
+[![GitHub](https://img.shields.io/badge/GitHub-pitchwise--explain--the--match-181717.svg)](https://github.com/harsh-18/pitchwise-explain-the-match)
 
 PitchWise AI is an explainable World Cup match companion that helps fans understand the story behind a match, not just the score or prediction.
 
